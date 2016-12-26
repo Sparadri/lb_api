@@ -12,6 +12,7 @@ gem 'figaro'
 gem 'devise'
 gem 'redis'
 gem "simple_token_authentication"
+gem 'jbuilder'
 
 group :development, :test do
   # enables http requests in ruby

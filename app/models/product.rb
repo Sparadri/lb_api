@@ -56,6 +56,7 @@ class Product < ActiveRecord::Base
 
   private
 
+  # set "is_live" to false when first created if not specified
   def default_values
     # on product creation, is_live set to false by default
     self.is_live ||= false

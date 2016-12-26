@@ -3,7 +3,9 @@ class Api::V1::ProductsController < Api::V1::BaseController
 
   def index
     products = policy_scope(Product)
-    render json: products.filter(params.slice(:category, :collectioner, :sort_by))
+    @filtered_products = products.filter(params.slice(:category, :collectioner, :sort_by))
+    render :index
+    # render json: products.filter(params.slice(:category, :collectioner, :sort_by))
   end
 
   def create

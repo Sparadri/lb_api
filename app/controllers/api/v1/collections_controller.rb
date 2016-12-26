@@ -4,7 +4,9 @@ class Api::V1::CollectionsController < Api::V1::BaseController
 
   def index
     collections = policy_scope(Collection)
-    render json: collections.filter(params.slice(:sort_by_collectioner_name, :sort_by_recency))
+    @filtered_collections = collections.filter(params.slice(:sort_by_collectioner_name, :sort_by_recency))
+    render :index
+    # render json: @collections.filter(params.slice(:sort_by_collectioner_name, :sort_by_recency))
   end
 
   def show
