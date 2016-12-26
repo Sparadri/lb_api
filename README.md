@@ -16,6 +16,8 @@
 * algolia search
 * money-rails
 * CRUD for collectioners
+* stabilize gem versions before prod
+* for interview, only do with placement (1, 2, 3)
 
 #### React / Redux
 * friendly url name on redux

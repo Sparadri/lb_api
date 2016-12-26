@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # basic gems
 gem 'rails', '4.2.5.1'
 gem 'rails-api'
@@ -13,6 +12,7 @@ gem 'devise'
 gem 'redis'
 gem "simple_token_authentication"
 gem 'jbuilder'
+gem 'will_paginate', '~> 3.1.0'
 
 group :development, :test do
   # enables http requests in ruby

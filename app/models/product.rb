@@ -5,7 +5,6 @@ class Product < ActiveRecord::Base
   after_initialize :default_values
 
 
-
   # ASSOCATIONS / VALIDATIONS
 
   # products must belong to a collection, to be assigned a collectioner

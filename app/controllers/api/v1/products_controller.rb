@@ -1,11 +1,13 @@
 class Api::V1::ProductsController < Api::V1::BaseController
   before_action :set_product, only: [ :show, :update ]
 
+  # paginate should come at the end to take into account potential filtering
+  # paginate could be in URL
   def index
-    products = policy_scope(Product)
-    @filtered_products = products.filter(params.slice(:category, :collectioner, :sort_by))
+    @filtered_products = policy_scope(Product)
+      .filter(params.slice(:category, :collectioner, :sort_by))
+      .paginate(page: params[:page], per_page: 30)
     render :index
-    # render json: products.filter(params.slice(:category, :collectioner, :sort_by))
   end
 
   def create
@@ -34,7 +36,6 @@ class Api::V1::ProductsController < Api::V1::BaseController
   end
 
   def product_params
-    p params
     params.require(:product).permit(:collection_id, :is_live, :title, :description, :price, :picture, :shop_url)
   end
 
