@@ -63,6 +63,9 @@
 <row name="interview_cover_picture" null="1" autoincrement="0">
 <datatype>TINYINT</datatype>
 <default>NULL</default></row>
+<row name="profile_picture" null="1" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
@@ -101,7 +104,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="456" y="373" name="collectioners">
+<table x="413" y="187" name="collectioners">
 <row name="id" null="1" autoincrement="1">
 <datatype>TINYINT</datatype>
 <default>NULL</default></row>
@@ -130,7 +133,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1163" y="30" name="categories">
+<table x="1172" y="56" name="categories">
 <row name="id" null="1" autoincrement="1">
 <datatype>TINYINT</datatype>
 <default>NULL</default></row>
@@ -165,7 +168,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="575" y="46" name="users">
+<table x="412" y="33" name="users">
 <row name="id" null="1" autoincrement="1">
 <datatype>TINYINT</datatype>
 <default>NULL</default></row>

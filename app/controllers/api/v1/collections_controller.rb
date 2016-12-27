@@ -40,7 +40,7 @@ class Api::V1::CollectionsController < Api::V1::BaseController
   end
 
   def collection_params
-    params.require(:collection).permit(:title, :is_live, :collectioner_id)
+    params.require(:collection).permit(:title, :is_live, :collectioner_id, :main_cover_picture, :interview_cover_picture, :profile_picture)
   end
 
   # method to send full error message as JSON with 422; could be put in application controller cause same for all controlers.

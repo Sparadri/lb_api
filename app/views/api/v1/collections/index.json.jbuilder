@@ -8,15 +8,15 @@ json.collections do
 
     # should be put in partial but issue: title should be details and not collection
     json.details do
-      json.id              collection.id
-      json.is_live         collection.is_live
-      json.title           collection.title
-      json.color_dark      collection.color_dark
-      json.color_light     collection.color_light
-      json.created_at      collection.created_at
-      json.updated_at      collection.updated_at
+      json.partial! partial: './api/v1/shared/collection', locals: { collection: collection }
     end
-    json.partial!      partial: './api/v1/shared/collectioner', locals: { collectioner: collection.collectioner }
+
+    json.interview do
+      json.array! collection.interviews do |interview|
+        json.partial! partial: './api/v1/shared/interview', locals: { interview: interview }
+      end
+    end
+    json.partial! partial: './api/v1/shared/collectioner', locals: { collectioner: collection.collectioner }
   end
 
 end

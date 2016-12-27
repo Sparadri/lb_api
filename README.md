@@ -16,13 +16,16 @@
 * money-rails
 * stabilize gem versions before prod
 * for interview, only do with placement (1, 2, 3)
-* emailing (transactional and marketing)
+* emailing (transactional and marketing) > user gibbon to automate newsletters?
+* add newsletter database
+* clearance gem for sign in
 
 #### React / Redux
 * friendly url name on redux
 * add statuses error > 400, 302
 * add picture uploader
 * connect to GA
+* add product_id as class ID to scroll until the product when coming from NL or instagram
 
 
 ## IN PROGRESS
@@ -37,6 +40,7 @@
 * should we provide a collectioner to le_barda team members
 * where to store collectioner profile_picture? in collection?
 * what should be the process for creating interviews
+
 
 ## THINKING
 * should we add profession? sportif, blogger, etc..
