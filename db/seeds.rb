@@ -1,8 +1,9 @@
 User.destroy_all
-Category.destroy_all
+ProductCategory.destroy_all
 Product.destroy_all
 Collection.destroy_all
 Collectioner.destroy_all
+Interview.destroy_all
 
 # USER - should not work as not in array + should print and save token
 password = '123456'
@@ -49,7 +50,7 @@ end
   price       = Faker::Commerce.price.to_f
   is_live     = [true, false].sample
   description = Faker::Hipster.sentences(4).join
-  title       = Faker::Hipster.words(3)
+  title       = Faker::Hipster.words(3).join
   shop_url    = Faker::Internet.url('mock.com')
   product = Product.create(
       title: title,
@@ -59,8 +60,44 @@ end
       collection: collection,
       shop_url: shop_url
   )
-  product.categories << Category.all.sample(2)
+  # should randomize sample(2) categories to check whether works for all configurations (including 0?)
+  product.categories << Category.all.sample((1..3).to_a.sample)
+  p product
 end
+
+# INTERVIEW
+Collection.all.each do |collection|
+  placement = 0
+  (1..3).to_a.sample.times do
+    question  = Faker::Hipster.words(3).join
+    answer    = Faker::Hipster.sentences(8).join
+    placement += 1
+    picture   = "random picture"
+    interview = Interview.create(
+      collection: collection,
+      question: question,
+      answer: answer,
+      placement: placement,
+      picture: picture
+    )
+    p interview
+  end
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

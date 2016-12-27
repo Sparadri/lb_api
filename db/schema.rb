@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161225224304) do
+ActiveRecord::Schema.define(version: 20161227111252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,11 +40,26 @@ ActiveRecord::Schema.define(version: 20161225224304) do
     t.string   "title"
     t.string   "color_dark"
     t.string   "color_light"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string   "main_cover_picture"
+    t.string   "interview_cover_picture"
+    t.string   "profile_picture"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   add_index "collections", ["collectioner_id"], name: "index_collections_on_collectioner_id", using: :btree
+
+  create_table "interviews", force: :cascade do |t|
+    t.integer  "collection_id"
+    t.string   "question"
+    t.string   "answer"
+    t.integer  "placement"
+    t.string   "picture"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "interviews", ["collection_id"], name: "index_interviews_on_collection_id", using: :btree
 
   create_table "product_categories", force: :cascade do |t|
     t.integer  "product_id"
@@ -91,6 +106,7 @@ ActiveRecord::Schema.define(version: 20161225224304) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "collections", "collectioners"
+  add_foreign_key "interviews", "collections"
   add_foreign_key "product_categories", "categories"
   add_foreign_key "product_categories", "products"
   add_foreign_key "products", "collections"

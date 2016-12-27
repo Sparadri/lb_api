@@ -36,7 +36,7 @@
 * add DESTROY method for all classes
 * should we provide a collectioner to le_barda team members
 * where to store collectioner profile_picture? in collection?
-
+* what should be the process for creating interviews
 
 ## THINKING
 * should we add profession? sportif, blogger, etc..

@@ -6,6 +6,7 @@ class Collection < ActiveRecord::Base
 
   belongs_to :collectioner
   has_many :products, dependent: :destroy
+  has_many :interviews, dependent: :destroy
 
   validates :title, presence: :true, uniqueness: true
   validates :collectioner, presence: :true

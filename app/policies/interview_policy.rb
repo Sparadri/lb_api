@@ -1,7 +1,7 @@
-class ProductPolicy < ApplicationPolicy
+class InterviewPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      user.nil? ? scope.where(is_live: true) : scope.all
+      scope
     end
   end
 
@@ -18,4 +18,5 @@ class ProductPolicy < ApplicationPolicy
   def user_logged?
     user.nil? ? false : true
   end
+
 end
