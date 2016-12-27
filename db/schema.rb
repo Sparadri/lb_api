@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161227111252) do
+ActiveRecord::Schema.define(version: 20161227144329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,13 @@ ActiveRecord::Schema.define(version: 20161227111252) do
   end
 
   add_index "interviews", ["collection_id"], name: "index_interviews_on_collection_id", using: :btree
+
+  create_table "newsletters", force: :cascade do |t|
+    t.string   "email"
+    t.boolean  "is_subscribed"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "product_categories", force: :cascade do |t|
     t.integer  "product_id"

@@ -19,6 +19,9 @@
 * emailing (transactional and marketing) > user gibbon to automate newsletters?
 * add newsletter database
 * clearance gem for sign in
+* create cloudinary account for lb
+* https registration
+* jobs to post on facebook / instagram / ...
 
 #### React / Redux
 * friendly url name on redux
@@ -26,6 +29,7 @@
 * add picture uploader
 * connect to GA
 * add product_id as class ID to scroll until the product when coming from NL or instagram
+* image uploader AWS (to be persisted ruby server side) react-s3 or other
 
 
 ## IN PROGRESS
@@ -46,3 +50,7 @@
 * should we add profession? sportif, blogger, etc..
 * collection, when live, should update product status to live. and vice versa. product_live and collection_not_live relationship should not be possible.
 * names should all be downcased when persisted in database and then upcased manually?
+
+
+## ISSUES
+* in application.rb, autoload_paths was added to load new folder 'services' (services folder was created by me): not sure best pratice...
