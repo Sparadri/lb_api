@@ -8,4 +8,6 @@ json.collectioner do
   json.instagram_url  collectioner.instagram_url
   json.pinterest_url  collectioner.pinterest_url
   json.created_at     collectioner.created_at
+
+  json.nb_products collectioner.products.where(is_live: true).length
 end

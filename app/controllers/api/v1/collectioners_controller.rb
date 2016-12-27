@@ -2,16 +2,13 @@ class Api::V1::CollectionersController < Api::V1::BaseController
   before_action :set_collectioner, only: [ :show, :update ]
 
   def index
-    render json: Collectioner.all
-  end
-
-  def show
-    render json: @collectioner
+    @collectioners = policy_scope(Collectioner.all)
+    render :index
   end
 
   def create
     @collectioner = Collectioner.new(collectioner_params)
-    # authorize @collectioner
+    authorize @collectioner
     if @collectioner.save
       render json: @collectioner, status: :created
     else
@@ -20,6 +17,7 @@ class Api::V1::CollectionersController < Api::V1::BaseController
   end
 
   def update
+    authorize @collectioner
     if @collectioner.update(collectioner_params)
       render json: @collectioner
     else

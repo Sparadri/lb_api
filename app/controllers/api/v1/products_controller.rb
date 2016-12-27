@@ -1,4 +1,5 @@
 class Api::V1::ProductsController < Api::V1::BaseController
+
   before_action :set_product, only: [ :show, :update ]
 
   # paginate should come at the end to take into account potential filtering

@@ -1,6 +1,7 @@
 class ProductPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
+      p user
       user.nil? ? scope.where(is_live: true) : scope.all
     end
   end
