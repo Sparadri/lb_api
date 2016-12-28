@@ -58,6 +58,7 @@
 * names should all be downcased when persisted in database and then upcased manually?
 * male / female filter
 * country flags
+* welcome email should be sent X minutes / hours after sign up
 
 
 ## ISSUES
@@ -68,3 +69,30 @@
 
 ### BACKGROUND JOBS
 * for tasks that take to much time in controllers (posting to an API (slack, etc...), sending emails, ...)
+* enable to asynchronous code
+* 2 waiting lists: normal and prio for things that must go fast
+* CRON jobs > notion of scheduling
+* 1 task, 1 job
+* sikeq executed in model so has full access
+* redis: key/value store > like postgresql. big hash that stores key/value pairs, not in ruby program but in redis
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
