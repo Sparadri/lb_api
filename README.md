@@ -17,11 +17,17 @@
 * stabilize gem versions before prod
 * for interview, only do with placement (1, 2, 3)
 * emailing (transactional and marketing) > user gibbon to automate newsletters?
-* add newsletter database
 * clearance gem for sign in
 * create cloudinary account for lb
 * https registration
 * jobs to post on facebook / instagram / ...
+* replace User.all.first by User.first
+
+#### SOCIAL
+* add newsletter database (vs. managed by mailchimp?)
+* ajax in mailchimp for surveys
+* update newsletter preferences > receive monthly
+* Cerberus newsletters
 
 #### React / Redux
 * friendly url name on redux
@@ -50,7 +56,15 @@
 * should we add profession? sportif, blogger, etc..
 * collection, when live, should update product status to live. and vice versa. product_live and collection_not_live relationship should not be possible.
 * names should all be downcased when persisted in database and then upcased manually?
+* male / female filter
+* country flags
 
 
 ## ISSUES
 * in application.rb, autoload_paths was added to load new folder 'services' (services folder was created by me): not sure best pratice...
+
+
+## KNOWLEDGE
+
+### BACKGROUND JOBS
+* for tasks that take to much time in controllers (posting to an API (slack, etc...), sending emails, ...)

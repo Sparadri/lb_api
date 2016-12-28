@@ -16,7 +16,10 @@ json.collections do
         json.partial! partial: './api/v1/shared/interview', locals: { interview: interview }
       end
     end
-    json.partial! partial: './api/v1/shared/collectioner', locals: { collectioner: collection.collectioner }
-  end
 
+    json.collectioner do
+      json.partial! partial: './api/v1/shared/collectioner', locals: { collectioner: collection.collectioner }
+    end
+
+  end
 end

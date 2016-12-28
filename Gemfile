@@ -28,6 +28,8 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'spring'
+
+  gem "letter_opener"
 end
 
 gem 'rails_12factor', group: :production
