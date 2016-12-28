@@ -25,24 +25,22 @@ json.products do
   json.array! @filtered_products do |product|
 
     json.details do
-      json.id            product.id
-      json.is_live       product.is_live
-      json.title         product.title
-      json.description   product.description
-      json.price         product.price
-      json.picture       product.picture
-      json.shop_url      product.shop_url
-      json.created_at    product.created_at
+      json.partial! partial: './api/v1/shared/product', locals: { product: product }
     end
 
-    json.partial!      partial: './api/v1/shared/collectioner', locals: { collectioner: product.collection.collectioner }
-    json.partial!      partial: './api/v1/shared/collection', locals: { collection: product.collection }
+    json.collectioner do
+      json.partial! partial: './api/v1/shared/collectioner', locals: { collectioner: product.collection.collectioner }
+    end
+
+    json.collection do
+      json.partial! partial: './api/v1/shared/collection', locals: { collection: product.collection }
+    end
 
     json.categories do
       json.array! product.categories do |category|
         json.partial! partial: './api/v1/shared/category', locals: { category: category }
       end
-
     end
+
   end
 end

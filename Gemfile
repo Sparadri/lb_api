@@ -8,11 +8,14 @@ gem 'rails-api'
 gem 'pg'
 gem 'pundit'
 gem 'figaro'
-gem 'devise'
 gem 'redis'
+gem 'devise'
 gem "simple_token_authentication"
 gem 'jbuilder'
+
+# features
 gem 'will_paginate', '~> 3.1.0'
+gem 'gibbon'
 
 group :development, :test do
   # enables http requests in ruby
@@ -25,6 +28,8 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'spring'
+
+  gem "letter_opener"
 end
 
 gem 'rails_12factor', group: :production
