@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
+  require "sidekiq/web"
 
   devise_for :users, skip: :all
+
+  mount Sidekiq::Web => '/sidekiq'
+
 
   namespace :api, defaults: { format: :json } do
 
     namespace :v1 do
+
+      post 'collections/:id/email', to: 'collections#email'
 
       resources :collections, only: [ :index, :create, :update, :destroy ]
       resources :collectioners, only: [ :index, :create, :update, :destroy ]

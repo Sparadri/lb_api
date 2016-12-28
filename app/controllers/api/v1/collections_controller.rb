@@ -1,6 +1,6 @@
 class Api::V1::CollectionsController < Api::V1::BaseController
 
-  before_action :set_collection, only: [ :show, :update ]
+  before_action :set_collection, only: [ :show, :update, :email ]
 
   def index
     collections = policy_scope(Collection)
@@ -11,7 +11,7 @@ class Api::V1::CollectionsController < Api::V1::BaseController
 
   def show
     authorize @collection
-    render json: @collection
+    render :show
   end
 
   def create
@@ -31,6 +31,14 @@ class Api::V1::CollectionsController < Api::V1::BaseController
     else
       render_error
     end
+  end
+
+  def email
+    p 'email to be sent'
+    authorize @collection
+    NewCollectionJob.perform_later(@collection.id)
+    render json: {status: 'email sent'}, status: :created
+    # NewCollectionJob.set(wait_until: Day.tomorrow.noon).perform_later
   end
 
   private

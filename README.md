@@ -22,6 +22,8 @@
 * https registration
 * jobs to post on facebook / instagram / ...
 * replace User.all.first by User.first
+* heroku setup of sidekiq
+* change is_logged_in policy to admin
 
 #### SOCIAL
 * add newsletter database (vs. managed by mailchimp?)

@@ -17,6 +17,11 @@ gem 'jbuilder'
 gem 'will_paginate', '~> 3.1.0'
 gem 'gibbon'
 
+# sidekiq
+gem 'sidekiq'
+gem 'sidekiq-failures'
+gem 'sinatra' # dependency sidekiq
+
 group :development, :test do
   # enables http requests in ruby
   gem 'rest-client'

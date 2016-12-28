@@ -8,8 +8,8 @@ class NewsletterMailer < ApplicationMailer
   def new_collection(args)
 
     # for testing purpose
-    @greeting = "Hi Adrien"
-    mail to: "to@example.org"
+    # @greeting = "Hi Adrien"
+    # mail to: "to@example.org"
 
     # fixed parameters
     @gibbon         = Gibbon::Request.new(api_key: ENV['MAILCHIMP_API_KEY'])

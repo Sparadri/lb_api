@@ -11,10 +11,15 @@ class CollectionPolicy < ApplicationPolicy
   end
 
   def show?
-    user_logged?
+    record.is_live ? true : user_logged?
   end
 
   def create?
+    user_logged?
+  end
+
+  def email?
+    p 'authorize'
     user_logged?
   end
 
