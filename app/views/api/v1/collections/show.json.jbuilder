@@ -7,7 +7,10 @@ json.details do
 end
 
 json.products do
-  json.array! @collection.products do |product|
-    json.partial! partial: './api/v1/shared/product', locals: { product: product }
+  @collection.products.each do |product|
+    json.set! product.id.to_s.to_sym do
+      json.partial! partial: './api/v1/shared/product', locals: { product: product }
+    end
   end
 end
+

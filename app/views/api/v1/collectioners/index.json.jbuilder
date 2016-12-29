@@ -4,7 +4,10 @@ json.current_user do
 end
 
 json.collectioners do
-  json.array! @collectioners do |collectioner|
-    json.partial! partial: './api/v1/shared/collectioner', locals: { collectioner: collectioner }
+  @collectioners.each do |collectioner|
+    json.set! collectioner.id.to_s.to_sym do
+      json.partial! partial: './api/v1/shared/collectioner', locals: { collectioner: collectioner }
+    end
   end
 end
+

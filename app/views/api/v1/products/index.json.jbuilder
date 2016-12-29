@@ -8,41 +8,47 @@ json.current_user do
 end
 
 # categories information
-json.categories do
-  json.array! Category.all do |category|
-    # categories should be ordered by number of items in them, with no pagination
-    json.partial! partial: './api/v1/shared/category', locals: { category: category }
+json.set! :categories do
+  Category.all.each do |category|
+    json.set! category.id.to_s.to_sym do
+      json.partial! partial: './api/v1/shared/category', locals: { category: category }
+    end
   end
 end
 
 # collectioners information
 json.collectioners do
-  json.array! Collectioner.all do |collectioner|
-    # categories should be ordered by number of items in them, with no pagination
-    json.partial! partial: './api/v1/shared/collectioner', locals: { collectioner: collectioner }
+  Collectioner.all.each do |collectioner|
+    json.set! collectioner.id.to_s.to_sym do
+      json.partial! partial: './api/v1/shared/collectioner', locals: { collectioner: collectioner }
+    end
   end
 end
 
+# product information
 json.products do
-  json.array! @filtered_products do |product|
+  @filtered_products.each do |product|
+    json.set! product.id.to_s.to_sym do
 
-    json.details do
-      json.partial! partial: './api/v1/shared/product', locals: { product: product }
-    end
+      json.details do
+        json.partial! partial: './api/v1/shared/product', locals: { product: product }
+      end
 
-    json.collectioner do
-      json.partial! partial: './api/v1/shared/collectioner', locals: { collectioner: product.collection.collectioner }
-    end
+      json.collectioner do
+        json.partial! partial: './api/v1/shared/collectioner', locals: { collectioner: product.collection.collectioner }
+      end
 
-    json.collection do
-      json.partial! partial: './api/v1/shared/collection', locals: { collection: product.collection }
-    end
+      json.collection do
+        json.partial! partial: './api/v1/shared/collection', locals: { collection: product.collection }
+      end
 
-    json.categories do
-      json.array! product.categories do |category|
-        json.partial! partial: './api/v1/shared/category', locals: { category: category }
+      json.categories do
+        product.categories.each do |category|
+          json.set! category.id.to_s.to_sym do
+            json.partial! partial: './api/v1/shared/category', locals: { category: category }
+          end
+        end
       end
     end
-
   end
 end

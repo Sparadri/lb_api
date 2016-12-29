@@ -6,22 +6,25 @@ end
 
 json.collections do
 
-  json.array! @filtered_collections do |collection|
+  @filtered_collections.each do |collection|
+    json.set! collection.id.to_s.to_sym do
 
-    # should be put in partial but issue: title should be details and not collection
-    json.details do
-      json.partial! partial: './api/v1/shared/collection', locals: { collection: collection }
-    end
-
-    json.interview do
-      json.array! collection.interviews do |interview|
-        json.partial! partial: './api/v1/shared/interview', locals: { interview: interview }
+      json.details do
+        json.partial! partial: './api/v1/shared/collection', locals: { collection: collection }
       end
-    end
 
-    json.collectioner do
-      json.partial! partial: './api/v1/shared/collectioner', locals: { collectioner: collection.collectioner }
-    end
+      json.interviews do
+        collection.interviews.each do |interview|
+          json.set! interview.id.to_s.to_sym do
+            json.partial! partial: './api/v1/shared/interview', locals: { interview: interview }
+          end
+        end
+      end
 
+      json.collectioner do
+        json.partial! partial: './api/v1/shared/collectioner', locals: { collectioner: collection.collectioner }
+      end
+
+    end
   end
 end
