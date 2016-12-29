@@ -85,7 +85,7 @@ Collection.all.each do |collection|
 end
 
 
-Newsletter.create(email:"adrien.devilloutreys@fifty-five.com")
+# Newsletter.create(email:"adrien.devilloutreys@fifty-five.com")
 
 
 
