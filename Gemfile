@@ -22,11 +22,14 @@ gem 'sidekiq'
 gem 'sidekiq-failures'
 gem 'sinatra' # dependency sidekiq
 
+# to be removed in production and put back in development group
+gem 'faker'
+
+
 group :development, :test do
   # enables http requests in ruby
   gem 'rest-client'
 
-  gem 'faker'
   gem 'binding_of_caller'
   gem 'better_errors'
   gem 'quiet_assets'
