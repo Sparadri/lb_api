@@ -19,7 +19,6 @@ class CollectionPolicy < ApplicationPolicy
   end
 
   def email?
-    p 'authorize'
     user_logged?
   end
 

@@ -24,6 +24,7 @@
 * replace User.all.first by User.first
 * heroku setup of sidekiq
 * change is_logged_in policy to admin
+* proted sidekiq route
 
 #### SOCIAL
 * add newsletter database (vs. managed by mailchimp?)

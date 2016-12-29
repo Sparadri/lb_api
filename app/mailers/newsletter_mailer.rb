@@ -5,16 +5,13 @@ class NewsletterMailer < ApplicationMailer
   #
   #   en.newsletter_mailer.new_collection.subject
 
-  def new_collection(args)
-
-    # for testing purpose
-    # @greeting = "Hi Adrien"
-    # mail to: "to@example.org"
-
+  def new_collection(args = {})
     # fixed parameters
     @gibbon         = Gibbon::Request.new(api_key: ENV['MAILCHIMP_API_KEY'])
     @html_file_name = __method__.to_s
     @template_id    = 52823
+
+    @collection = args[:collection]
 
     # custom parameters to build the campaign
     @email_subject_line = args[:email_subject_line] || 'hey look it up'
@@ -51,3 +48,5 @@ end
 
 # to do: check more options
 # check how to create jobs to perform the action because takes long time
+
+# not to play too much with ashes, wouldn't it be better to create a mailing database to keep track of everyhting????
