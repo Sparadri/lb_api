@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-  before_action :verify_api_key
+  # before_action :verify_api_key
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
