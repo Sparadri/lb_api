@@ -1,7 +1,7 @@
 # User.destroy_all
-# ProductCategory.destroy_all
+Collection.destroy_all
+Category.destroy_all
 # Product.destroy_all
-# Collection.destroy_all
 # Collectioner.destroy_all
 # Interview.destroy_all
 
@@ -49,8 +49,7 @@ end
   collection  = Collection.all.sample
   price       = Faker::Commerce.price.to_f
   is_live     = [true, false].sample
-  description = Faker::Hipster.sentences(4).join
-  title       = Faker::Hipster.words(3).join
+  description = Faker::Hipster.sentences(4).join(' ')
   shop_url    = Faker::Internet.url('mock.com')
   product = Product.create(
       title: title,
@@ -69,8 +68,8 @@ end
 Collection.all.each do |collection|
   placement = 0
   (1..3).to_a.sample.times do
-    question  = Faker::Hipster.words(3).join
-    answer    = Faker::Hipster.sentences(8).join
+    question  = "#{Faker::Hipster.words(6).join(' ')}?"
+    answer    = Faker::Hipster.sentences(8).join(' ')
     placement += 1
     picture   = "random picture"
     interview = Interview.create(

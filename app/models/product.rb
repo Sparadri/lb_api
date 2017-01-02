@@ -12,7 +12,7 @@ class Product < ActiveRecord::Base
   belongs_to :collectioner
 
   # many-to-many relationships, with joint table products_categories
-  has_many :product_categories, class_name: 'ProductCategory'
+  has_many :product_categories, class_name: 'ProductCategory', dependent: :destroy
   has_many :categories, through: :product_categories
 
   # data validation

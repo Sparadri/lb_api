@@ -6,6 +6,10 @@ json.details do
   json.partial! partial: './api/v1/shared/collection', locals: { collection: @collection }
 end
 
+json.collectioner do
+  json.partial! partial: './api/v1/shared/collectioner', locals: { collectioner: @collection.collectioner }
+end
+
 json.products do
   @collection.products.each do |product|
     json.set! product.id.to_s.to_sym do

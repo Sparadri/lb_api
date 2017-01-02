@@ -7,7 +7,7 @@ class Api::V1::ProductsController < Api::V1::BaseController
   def index
     @filtered_products = policy_scope(Product)
       .filter(params.slice(:category, :collectioner, :sort_by))
-      .paginate(page: params[:page], per_page: 30)
+      # .paginate(page: params[:page], per_page: 30)
     render :index
   end
 
